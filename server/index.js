@@ -25,10 +25,8 @@ app.use(
 
 app.use(cookieParser());
 
-app.use("/", (req,res,next)=>{
-  return res.json({
-    message:"Welcome to Authentication App"
-  });
+app.use("/", (req, res, next) => {
+  return res.send("Welcome to Authentication App");
 });
 
 app.use("/api/auth/user", userRoute);
