@@ -21,14 +21,11 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(
   cors({
-    origin:[
-      "http://localhost:3000",
-      "https://mern-authentication-zdj0.onrender.com"
-    ],
-    // credentials: true,
-    // methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
-    // allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
-    // exposedHeaders: ["*", "Authorization"],
+    origin: ["http://localhost:3000","http://localhost:3001"],
+    credentials: true,
+    methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
+    exposedHeaders: ["*", "Authorization"],
   })
 );
 
