@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import OtpForSignup from "./pages/OtpForSignup";
 import Layout from "./layout/Layout";
 import Home from "./pages/Home";
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const App = () => {
   return (
@@ -17,6 +19,7 @@ const App = () => {
           <Route path="/sendOtp" element={<OtpForSignup />} />
         </Route>
       </Routes>
+      <ToastContainer/>
     </>
   );
 };

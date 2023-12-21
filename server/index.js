@@ -11,25 +11,36 @@ dotenv.config();
 
 const PORT = 5000 || process.env.PORT;
 
-app.use(express.json());
-
-app.use(
-  cors({
-    origin: "*",
-    credentials: true,
-    methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
-    exposedHeaders: ["*", "Authorization"],
-  })
-);
 
 app.use(cookieParser());
 
-app.use("/", (req, res, next) => {
-  return res.send("Welcome to Authentication App");
-});
+app.use(express.json());
+
+
+app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  cors({
+    origin:[
+      "http://localhost:3000",
+      "https://mern-authentication-zdj0.onrender.com"
+    ],
+    // credentials: true,
+    // methods: ["GET", "PUT", "POST", "PATCH", "DELETE"],
+    // allowedHeaders: ["Content-Type", "Authorization", "x-csrf-token"],
+    // exposedHeaders: ["*", "Authorization"],
+  })
+);
+
+
 
 app.use("/api/auth/user", userRoute);
+
+
+// app.use("/", (req, res, next) => {
+//   return res.send("Welcome to Authentication App");
+// });
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port no ${PORT}`);
